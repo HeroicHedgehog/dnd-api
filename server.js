@@ -57,3 +57,10 @@ const query = `SELECT characterID, name FROM dnd.character`
 results = await connection.query(query, [])
 return results;
 })
+
+fastify.post('/updateGold', async function (request, reply) {
+const connection = await mariadb.createConnection(credentials.parsed)
+const query = `UPDATE dnd.character SET gold = ${request.body.gold} WHERE characterID = ${request.body.characterID}` 
+results = await connection.query(query, [])
+return results;
+})

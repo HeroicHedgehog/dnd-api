@@ -50,3 +50,12 @@ Given all information it will create a new item
 
 ## /getListOfNames
 Will return a list of all character ID's and the name
+
+## /updateGold
+Given character id and new gold amount it will update the gold amount
+```
+{
+    characterID: int
+    gold: int
+}
+```
