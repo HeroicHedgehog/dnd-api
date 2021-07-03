@@ -47,3 +47,6 @@ Given all information it will create a new item
     equipped: Bool
 }
 ```
+
+## /getListOfNames
+Will return a list of all character ID's and the name

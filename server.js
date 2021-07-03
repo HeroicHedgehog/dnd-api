@@ -12,7 +12,7 @@ fastify.register(require("fastify-cors"), { // CORS headers
 
 fastify.listen(1212, err => {
   if (err) throw err
-  console.log('Server listening at http://localhost:3000')
+  console.log('Server listening at http://localhost:1212')
 })
 
 // Declare a route
@@ -47,6 +47,13 @@ fastify.post('/newItem', async function (request, reply) {
 const connection = await mariadb.createConnection(credentials.parsed)
 const query = `INSERT INTO dnd.items (characterID, name, description, equipped)
                VALUES (${request.body.characterID}, '${request.body.name}', '${request.body.description}', ${request.body.equipped})`
+results = await connection.query(query, [])
+return results;
+})
+
+fastify.post('/getListOfNames', async function (request, reply) {
+const connection = await mariadb.createConnection(credentials.parsed)
+const query = `SELECT characterID, name FROM dnd.character`
 results = await connection.query(query, [])
 return results;
 })
