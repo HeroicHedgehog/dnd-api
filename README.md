@@ -38,7 +38,7 @@ Given all character information, it will create a new character.
 ```
 
 ## /newItem
-Given a character ID it will return all character information
+Given all information it will create a new item
 ```
 {
     characterID: int
